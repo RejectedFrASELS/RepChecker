@@ -95,4 +95,5 @@ There are some features I want to add in future. Maybe I won't add at all.
 3. Adding option to check hashes and other stuff that you can check using Virus Total API.
 4. Adding a "config" file to store all configs, letting user to change the configs using cli or text editor.
 5. An option to sleep a time interval between values since some firewalls might block the traffic.
+6. Detect which API key failed, put it on report. If an API key fails, select the next API key and continue
 
