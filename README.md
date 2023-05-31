@@ -6,7 +6,7 @@ You can use multiple API keys, the code will use them one by one for each value.
 
 Also you need to have Python 3 and need to install requirements using ```pip install -r requirements.txt```
 
-You can use the script in different ways.<br>
+You can use the script in different ways. I added some values for you to test in 'target-list.txt'<br>
 
 Options included in script:
 ```
