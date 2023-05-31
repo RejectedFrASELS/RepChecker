@@ -35,8 +35,8 @@ argParser.add_argument("-V", "--version", action="store_true", help="Prints curr
 argParser.add_argument("-i", "--input", type=str, help="To check single value.", required=False)
 argParser.add_argument("-r", "--report", action="store_true", help="Generate HTML report.", required=False)
 argParser.add_argument("-c", "--cli", action="store_true", help="Output only on console.", required=False)
-argParser.add_argument("-vt", "--virustotal", type=int, help="Virustotal malicious reports threshold. Default 1.", required=False, default=1, metavar="[Threshhold number]")
-argParser.add_argument("-ab", "--abuse", type=int, help="Abuse IP DB malicious reports threshold. Default 1.", required=False, default=1, metavar="[Threshhold number]")
+argParser.add_argument("-vt", "--virustotal", type=int, help="Virustotal malicious reports threshold. Default 1.", required=False, default=1, metavar="[Threshold number]")
+argParser.add_argument("-ab", "--abuse", type=int, help="Abuse IP DB malicious reports threshold. Default 1.", required=False, default=1, metavar="[Threshold number]")
 argParser.add_argument("-p", "--path", type=str, help="Provide path of the txt file contains targets. Default 'target-list.txt'.", required=False, default="target-list.txt")
 
 args = argParser.parse_args()
