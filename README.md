@@ -1,5 +1,5 @@
 # RepChecker
-Checking Bulk IP Addresses and domains using Virus Total and Abuse IP DB API. Can generate HTML reports.<br>
+Checking Bulk IP Addresses and domains' reputation using Virus Total and Abuse IP DB API. Can generate HTML reports.<br>
 <br>
 To use the script, you need to get Virus Total and Abuse IP DB API keys and paste them into txt files in api-keys folder line by line.<br>
 You can use multiple API keys, the code will use them one by one for each value. This will help you maintain the API keys' limits.<br><br>
