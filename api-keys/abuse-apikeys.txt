@@ -1,3 +1,3 @@
-KEY1(DELETE-ME, can use multiple API keys. Just paste them line by line)
-KEY2(DELETE-ME)
-KEY3(DELETE-ME)
+KEY1DELETE-ME, can use multiple API keys. Just paste them line by line
+KEY2DELETE-ME
+KEY3DELETE-ME
