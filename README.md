@@ -4,7 +4,8 @@ Checking Bulk IP Addresses and domains' reputation using Virus Total and Abuse I
 To use the script, you need to get Virus Total and Abuse IP DB API keys and paste them into txt files in api-keys folder line by line.<br>
 You can use multiple API keys, the code will use them one by one for each value. This will help you maintain the API keys' limits.<br>
 
-You can use multithreading to run the code faster!<br><br>
+**You can use multithreading to run the code faster!**<br>
+It is recommended to have licenced API keys and generate an HTML report, CLI output is sometimes buggy with multithreading on<br>
 
 Also you need to have Python 3 and need to install requirements using ```pip install -r requirements.txt```
 
