@@ -103,11 +103,11 @@ The HTML file report will be like in the following image below:
 
 ## Roadmap
 There are some features I want to add in future. Maybe I won't add at all.
-- [x] Add Multithreading!
+- [x] Adding Multithreading!
 - [x] Change the code's base, add functions to each task, beautfiy it. This way the code will be more coder friendly and will be a lot easier to add new features. The reason for this code to be in this sloppy shape is because it started with reading from a txt file and outputting on txt file using only Virus Total API
 - [x] Adding option to on-off Abuse IP DB or Virus Total on checks.
-- Adding option to check hashes and other stuff that you can check using Virus Total API.
-- Adding a "config" file to store all configs, letting user to change the configs using cli or text editor.
-- An option to sleep a time interval between values since some firewalls might block the traffic.
-- Detect which API key failed, put it on report. If an API key fails, select the next API key and continue
+- [] Adding option to check hashes and other stuff that you can check using Virus Total API.
+- [] Adding a "config" file to store all configs, letting user to change the configs using cli or text editor.
+- [] An option to sleep a time interval between values since some firewalls might block the traffic.
+- [] Detect which API key failed, put it on report. If an API key fails, select the next API key and continue
 
