@@ -110,4 +110,6 @@ There are some features I want to add in future. Maybe I won't add at all.
 - [ ] Adding a "config" file to store all configs, letting user to change the configs using cli or text editor.
 - [ ] An option to sleep a time interval between values since some firewalls might block the traffic.
 - [ ] Detect which API key failed, put it on report. If an API key fails, select the next API key and continue
+- [ ] Adding GUI
+- [ ] Adding an option to turn of cli output (Verbose)
 
