@@ -12,18 +12,21 @@ from threading import Thread
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 """
-VER 1.1
+VER 1.1.1
 """
 
-version = "1.1"
+version = "1.1.1"
 
 changeLog = """
 CHANGE LOG
+== VER 1.1
 - Changed the code's base, added functions etc,
 - Added Threads,
 - Removed .txt output,
-- Fixed issue in HTML file for domain links not present in VirusTotal
-- Added changeLog xd,
+- Fixed issue in HTML file for domain links not present in VirusTotal,
+== VER 1.1.1
+- Fixed issues in HTML file for AbuseIPDB reporting,
+- Added a text when a report is generated at the end of cli output.
 """
 
 print(f"""                                          
@@ -109,13 +112,13 @@ def checkAbuse(value, counter):
             reportCount = decodedResponse['data']['totalReports']
             usageType = decodedResponse['data']['usageType']
         else:
-            ispName, usageType = ("Cannot check domains on Abuse IP DB", "Cannot check domains on Abuse IP DB")
+            ispName, usageType = ("Can only check valid IP addresses on AbuseIPDB", "Can only check valid IP addresses on AbuseIPDB")
             reportCount, reportScore= (0, 0)
             returnJson = {
-            "ispName" : "Cannot check domains on Abuse IP DB",
+            "ispName" : "Can only check valid IP addresses on AbuseIPDB",
             "reportScore" : 0,
             "reportCount" : 0,
-            "usageType" : "Cannot check domains on Abuse IP DB",
+            "usageType" : "Can only check valid IP addresses on AbuseIPDB",
             "error" : True
                 }
             return(returnJson)
@@ -173,7 +176,7 @@ def checkVirustotal(value, counter):
         return(returnJson)
     except:
         returnJson = {
-            "asOwner" : "error",
+            "asOwner" : "Error",
             "lastAnalysisStats" : {"Error": "Error with VirusTotal"},
             "isMalicious" : 0,
             "error" : True
@@ -196,7 +199,7 @@ def checking(value, counter):
         lastAnalysisStats = jsonVirustotal["lastAnalysisStats"]
         isMalicious = jsonVirustotal["isMalicious"]
         vtError = jsonVirustotal["error"]
-        print(f"Address: {address}\n==Virus Total==")
+        print("\n==Virus Total=="+ ("=" * 35) + "\nAddress:" + address)
         print(f"\tAS Owner: {asOwner}")
         print("\tLast Analysis Stats:")
         for engine, result in lastAnalysisStats.items():
@@ -217,7 +220,7 @@ def checking(value, counter):
         reportCount = jsonAbuse["reportCount"]
         usageType = jsonAbuse["usageType"]
         abuseError = jsonAbuse["error"]
-        print("==Abuse IP DB==\n" + "\tISP Name: " + ispName + "\n\tAbuse Score: " + str(
+        print("==Abuse IP DB==" + ("=" *35) + "\nAddress:" + address + "\n\tISP Name: " + ispName + "\n\tAbuse Score: " + str(
                 reportScore) + "\n\tReport Counts: " + str(reportCount) + "\n\tUsage Type: " + str(usageType))
     else:
         reportScore = 0
@@ -225,7 +228,7 @@ def checking(value, counter):
         abuseError = False
         usageType = "NotChecked"
 
-    print("=" * 50)
+    #print("=" * 50)
     
     # APPEND isMalicious LIST
     if (int(isMalicious) >= args.virustotalreports or int(reportCount) >= args.abusereports or reportScore == 100) and usageType != "Reserved":
@@ -271,6 +274,10 @@ def checking(value, counter):
                             <td colspan="2" align="center"><strong><a href="https://www.abuseipdb.com/check/{address}" target="_blank">Abuse IP DB</a></strong></td>
                         </tr>
                         <tr>
+                            <td><b>Address:</b></td>
+                            <td><b>{address}</b></td>
+                        </tr>
+                        <tr> 
                             <td>ISP Name:</td>
                             <td>{ispName}</td>
                         </tr>
@@ -405,12 +412,16 @@ if __name__ == "__main__":
                 html_file.write('</table></body>\n</html>')
             html_file.write(f'Version {version}')
 
-    print(f"Malicious Values are: (at least {str(args.virustotalreports)} reported on Virus Total or {str(args.abusereports)} on AbuseIPDB)\n")
+    print("=" * 50)
+    print(f"\nMalicious Values are: (at least {str(args.virustotalreports)} reported on Virus Total or {str(args.abusereports)} on AbuseIPDB)\n")
     for i in maliciousValues:
         print("%s" % i)
 
     print(f"Successfully checked on {successfullyChecked} values out of {totalCounter}\n")
 
-    print("Failed Values Are:")
+    print("Failed Values Are:\n")
     for i in failedValues:
         print("%s" % i)
+
+    if args.report:
+        print("\nOutput is also created as " + reportName + " in same directory")
