@@ -74,10 +74,9 @@ RepChecker.py -vt
 ## Outputs and Reports
 The command-line output of ```RepChecker.py -i 8.8.8.8 -r``` will be like the following:
 ```
-Analyzing IP Address: 8.8.8.8
-==================================================
+Analyzing value: 8.8.8.8
+==Virus Total=====================================
 Address: 8.8.8.8
-==Virus Total==
         AS Owner: GOOGLE
         Last Analysis Stats:
                 harmless: 68
@@ -85,7 +84,8 @@ Address: 8.8.8.8
                 suspicious: 0
                 undetected: 17
                 timeout: 0
-==Abuse IP DB==
+==Abuse IP DB====================================
+Address: 8.8.8.8
         ISP Name: Google LLC
         Abuse Score: 0
         Report Counts: 54
