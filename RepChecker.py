@@ -275,7 +275,7 @@ def checking(value, counter):
         reportCount = 0
         abuseError = False
         usageType = "NotChecked"
-    if not args.spur:
+    if args.spur:
         spurText = checkSpur(address)
         print("==Spur Report==" + ("=" *34) + "\nAddress:" + address + "\n\tSpur Comment: " + spurText )
 
@@ -355,7 +355,7 @@ def checking(value, counter):
                     '''
             startHtml = startHtml + abuseHtml
 
-        if not args.spur:    
+        if args.spur:    
             spurHtml = f'''            
                         <tr>
                             <td colspan="2" align="center"><strong><a href="https://spur.us/context/{address}" target="_blank">Spur</a></strong></td>
