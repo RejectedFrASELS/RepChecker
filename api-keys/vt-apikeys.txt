@@ -1,3 +1,0 @@
-KEY1DELETE-ME, can use multiple API keys. Just paste them line by line
-KEY2DELETE-ME
-KEY3DELETE-ME
